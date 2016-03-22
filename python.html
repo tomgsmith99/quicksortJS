@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>tomgsmith99 Quicksort - illustration</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel ="stylesheet" type ="text/css" href ="css/quicksort.css">
+        <script src="scripts/jquery/jquery-2.1.4.min.js" type ="text/javascript"></script>
+        <script src="scripts/jsplumb/jsPlumb-2.0.4.js"></script>
+
+        <script src='scripts/tom/binaryTree.js' type ='text/javascript'></script>
+        <script src="scripts/tom/quicksort.js" type="text/javascript"></script>
+        <script src="scripts/tom/qsDemoSet.js" type="text/javascript"></script>
+
+<!--            /*
+
+            def quickSort(A, left, right): # Accept the array and arbitrary values for left
+    # and right. In practice, left should always be less than right, except in
+    # the case where the array has a length of 1, and in that case,
+    # left is equal to right.
+
+    if left < right: # this will always execute, unless 1) left > right, which
+        # should not happen if we've constructed the Partition function properly
+        # (and also passed in good values to start) or 2) left = right, in which case 
+        
+        pivot = partition(A, left, right) # get a pivot value between the left index and the right index
+        printArray(A)
+        printArray(A[left:pivot])
+        quickSort (A, left, pivot)
+        printArray(A[left:pivot])
+        quickSort (A, (pivot+1), right)
+        x = pivot + 1
+        printArray(A[x:right])
+
+def partition(A, left, right):
+    pivot = A[left]
+
+    while True:
+        while A[right] > pivot:
+            right = right - 1
+        while A[left]  < pivot:
+            left = left + 1
+        if left < right:
+            temp = A[left]
+            A[left] = A[right]
+            A[right] = temp
+        else:
+            # printArray(A)
+            return right
+
+quickSort(A, 0, (len(A) - 1))
+# partition(A, 0, (len(A) - 1))
+
+        </script>-->
+
+
+    </head>
+    <body>
+        <div class = "topnav" id="topnavContainer">
+            <div class="topnav" id="topnavLeft">
+                <p>quicksort illustrator</p>
+            </div>
+
+            <div class="topnav" id="topnavRight"></div>
+        </div>
+        <div id ='canvas'>
+            <div id="quickSortCanvas"></div>
+            <div id='tableView'></div>
+        </div>
+
+    </body>
+</html>

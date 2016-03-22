@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>A quicksort analogy</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="Description" lang="en" content="an explanation of how the quicksort algorithm works">
+        <meta name="author" content="tomgsmith99@gmail.com">
+        <meta name="robots" content="index, follow">
+
+        <link rel="stylesheet" href="../../assets/css/styles.css">
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="container">
+                    <h1 class="header-heading">An Analogy</h1>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <div class="container">
+                <ul class="nav">
+                    <li><a href="../why/">Why</a></li>
+                    <li><a href="../analogy/">An analogy</a></li>
+                    <li><a href="../illustration/">Illustration</a></li>
+<!--                <li><a href="#">Illustration explained</a></li>-->
+                    <li><a href="../codeWalkthrough/">Code</a></li>
+                    <!--Python-->
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container">
+                <div class="main">
+                    <h1>An analogy</h1>
+                    <hr>
+                    <p>Let’s say Sherlock Holmes and Dr. Watson are giving a talk at an auditorium on the merits and differences between inductive and deductive reasoning. At the conclusion of their talk, they ask the audience to participate in an experiment.</p>
+
+                    <p>Holmes takes a stack of 50 index cards and writes a random number from 1 to 1000 on each of them. Watson does the same, writing the same numbers on 50 index cards. For simplicity’s sake, we’re going to say that each number is in each deck only once (the decks are duplicates of each other).</p>
+
+                    <p>Holmes shuffles his deck, and then asks Watson to make sure that his own deck matches the sequence of Holmes’ deck. Watson painstakingly makes sure that the order of his deck matches Holmes’. So now we have two decks, with random numbers in the same (random) order.</p>
+
+                    <p>Holmes asks Watson to sit off to the side, and sort the deck the traditional way:</p>
+                    <p>Look at the first card.</p>
+                    <p>Look at the next card. If the next card is lower than the first card, move it into the first position.</p>
+                    <p>For every succeeding card, if it’s larger than the previous card, move it towards the front until it’s smaller than the card you’re looking at.</p>
+
+                    <p>(This familiar method is called the Insertion Sort.)</p>
+
+                    <p>Holmes asks Watson to wait until the audience is ready, so that he can race against the audience.</p>
+
+                    <p>Holmes gives the audience the following instructions:</p>
+
+                    <p>“I am going to take the first card from the top of the deck. I am then going to go through the entire deck and divide it into two piles. The pile on the left will contain numbers smaller than my initial card, and the pile on the right will contain numbers larger than my initial card. I won’t ever change my initial card, and I will not sort the piles.”</p>
+
+                    <p>“When I am done, I will keep the initial card I’ve chosen, but I am going to give the pile on my left to a person on the left side of the room and the pile on my right to a guest on the right.</p>
+
+                    <p>Every person holding a pile will then do the same thing that I did:</p>
+                    <p>Take the top card</p>
+                    <p>Look at every card in their pile. If the number on the card is smaller than the number on their top card, put it in a pile on the left. If it’s larger, put it in a pile on the right. Pass the piles (even if it’s just one card) to the people on your left and right as appropriate. Please pass to the people one row behind you to keep this manageable.</p>
+
+                    <p>An astute audience member asks “what if your pile has only two cards?”</p>
+
+                    <p>Holmes answers, “Same thing, basically. Take the top card and hold it. Put the other card to your left or right, depending on whether it’s smaller or larger than your initial card, and pass it on the person on your left or right as appropriate. The other side simply will not get a card.”</p>
+
+                    <p>Holmes continues: “Once everyone has a single card, our sorting is complete. Pass your card or pile back to the person who gave it to you. When you receive a card or a pile, keep your card in the middle and put the left pile on top and right pile on the bottom, and then pass it on.”</p>
+
+                    <p>Holmes and Watson start the contest with their matching decks, Watson patiently going through each card, and Holmes using the audience to help him with his method.</p>
+
+                    <p>They run the experiment several times, shuffling the deck after each try, and Watson patiently making sure the order of his deck matches Holmes’ before the next round begins. Holmes and the audience win every time, and they’re having a lot of fun doing it.</p>
+
+                    <p>After the fifth round, Professor Moriarty, lurking in the shadows and heretofore unseen, grabs Watson by the sleeve and pulls him aside. Watson, initially apprehensive, glances at Holmes whooping it up with the audience, and listens to Moriarty.</p>
+
+                    <p>Moriarty says, “May I make a simple suggestion? Watson lets his fatigue get the better of him, and says “what is it?”</p>
+
+                    <p>“Ask Holmes to conduct this experiment when the decks are already sorted.”</p>
+
+                    <p>Watson responds, “And what would be the point in sorting decks that are already sorted?”</p>
+
+                    <p>Moriarty pauses, and then says, “OK then, tell Holmes that you want to keep the decks mostly sorted, but swap the order of the last two cards. Then they would be unsorted decks, right?”</p>
+
+                    <p>Watson nods grimly, but looks forward to an easier sorting task, as Moriarty passes back into the shadows.</p>
+
+                    <p>Watson explains the proposition to Holmes, who agrees, though he casts a glance in the direction of the shadows.</p>
+
+                    <p>In this case of the almost-sorted deck, Watson runs through his deck very quickly, while Holmes, playing by the rules, must take the first card and then go through his method of splitting the deck. It’s tedious. Watson wins this round handily and gets a nice round of applause from the audience.</p>
+
+                    <p>Energized by his win, Watson agrees to keep playing through the night. Holmes and Watson keep the audience there all night, and conclude that if the deck is already sorted, or almost-sorted, then Watson will win. Otherwise, Holmes and the audience will win.</p>
+
+                    <p>Holmes and the audience have been using quicksort, while Watson was using insertion sort. While the example is exaggerated, and might not actually work out in real life due to physical friction (though it would be cool to try), the moral of the story is that quicksort is often faster than insertion sort, or any other sorting algorithm, for that matter.</p>
+
+                    <hr>
+                    <p>Now, I’ll try to convert this fictional portrayal of the quicksort algorithm into some more formal (though not formal) logic. One of the many great things about the quicksort algorithm is that it is a classic example of recursion. Recursion is the notion of a function calling itself. In the Sherlock Holmes example, each time a person receives a deck of cards, they are starting from the beginning with a fresh deck of cards and telling their “subsidiary” sorters to just sort the deck that they’ve been given.</p>
+
+                    <p>Again referring to the Sherlock Holmes example: consider the fact that maybe Sherlock was just handling a deck of cards that a “superior” sorter had given him - maybe the superior sorter was actually trying to sort a deck from 1 to 2000 - or 1 to 10,000 - and his initial card was 1001, so he gave Holmes (on the “left”) only the cards less than 1001.</p>
+                    
+                    <p>Stated a little more formally, the quicksort function does this:</p>
+
+                    <ol>
+                        <li>Accept a deck</li>
+                        <li>Is the deck only one card?</li>
+                        <li>If yes: the deck is sorted. There’s no need to continue with this function.</li>
+                        <li>If no: take the top card.</li>
+                        <li>Divide the remaining cards in the deck into two groups: cards greater than the top card (“right”) and cards smaller than the top card (“left”)</li>
+                        <li>Start at step 1 with the left pile</li>
+                        <li>Start at step 1 with the right pile</li>
+                    </ol>
+                    <p>For better or worse: understanding the high-level concept of recursion, and how it could be implemented in code, is one thing. Writing the code that actually executes recursion successfully is another.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                &copy; Copyright 2015 tomgsmith99@gmail.com
+            </div>
+        </div>
+    </body>
+</html>

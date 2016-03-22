@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Quicksort Code illustration</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="Description" lang="en" content="an animation of how the quicksort algorithm works">
+        <meta name="author" content="tomgsmith99@gmail.com">
+        <meta name="robots" content="index, follow">
+
+        <script src="../../scripts/tom/quicksort.js" type="text/javascript"></script>
+        <script>
+            var qsCount = 0;
+
+            window.onload = function() {
+                var A = [22,45,35,77,73,52,0,55,77,16];
+
+                quickSort (A, 0, (A.length - 1));
+
+                console.log("------------------------------------");
+
+                console.log("quicksort complete. The sorted array is: " + A);
+            };
+        </script>
+        
+        <!-- icons -->
+<!--        <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+        <link rel="shortcut icon" href="favicon.ico"> -->
+
+        <link rel="stylesheet" href="../../assets/css/styles.css">
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="container">
+                    <h1 class="header-heading">The Quicksort Algorithm</h1>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <div class="container">
+                <ul class="nav">
+                    <li><a href="../why/">Why</a></li>
+                    <li><a href="../analogy/">An analogy</a></li>
+                    <li><a href="../illustration/">Illustration</a></li>
+<!--                <li><a href="#">Illustration explained</a></li>-->
+                    <li><a href="../codeWalkthrough/">Code</a></li>
+                    <!--Python-->
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container">
+                <div class="main">
+                    <h1>Code Walkthrough</h1>
+
+                        <hr>
+
+                        <!-- Paragraphs -->
+                        <h3>Key concepts of the quicksort algorithm</h3>
+                        <p>The quicksort algorithm in code relies on a few key concepts.</p>
+                        <p><b>Base cases</b>: The algorithm fundamentally relies on the fact that an array whose length is 1 does not need to be sorted. Neither does an array whose length is 0. These are the "base cases" of the algorithm.</p>
+                        <p><b>Divide and conquer</b>: The algorithm takes a "divide and conquer" approach. It picks a "pivot value" in the array and then reorders the array so that all of the values (if any) that are less than the pivot value are on the left of the pivot value, and all values (if any) that are greater than the pivot value are on the right of the pivot value.</p>
+                        <p>The algorithm then takes the subarrays on either side of the pivot value and quicksorts them recursively until a base case is reached.</p>
+
+                        <h3>The code</h3>
+                        <p>This is a javascript implementation of the algorithm.</p>
+                        <p>In addition to the code walkthrough below, the algorithm runs when you load this page, and prints very verbose output to the console.</p>
+
+                        <pre>
+                        function quickSort(A, left, right) {
+                            if (left < right) {
+                                var pivot = partition(A, left, right);
+                                quickSort (A, left, (pivot-1));
+                                quickSort (A, (pivot+1), right);
+                            }
+                        }
+
+                        function partition(A, left, right){
+                            var pivotVal = A[left];
+                            var pivptr = left;
+                            for (var j = (left + 1); j <= right; j++){
+                                if (A[j] <= pivotVal) {
+                                    pivptr = pivptr + 1;
+
+                                    var temp = A[j];
+                                    A[j] = A[pivptr];
+                                    A[pivptr] = temp;
+                                }
+                            }
+
+                            temp = A[pivptr];
+                            A[pivptr] = A[left];
+                            A[left] = temp;
+
+                            return pivptr;
+                        }
+
+                        var A = [22,45,35,77,73,52,0,55,77,16];
+
+                        quickSort (A, 0, (A.length - 1));
+                        
+                        </pre>
+
+                        <h3>The code explained</h3>
+                        
+                        <table class="table">
+                            <tr>
+                                <td><pre>function quickSort (A, left, right) {</pre></td>
+                                <td><p>the quicksort function takes as parameters an array, a left index, and a right index. The first time the function is called, left = 0 and right = rightmost index. On succeeding calls, left and right will change based on the subsection of the array (subarray) that is being sorted.</p></td>
+                            </tr>
+                            <tr>
+                                <td><pre>    if (left < right) {</pre></td>
+                                <td><p>this is the essential comparison of the algorithm. The fundamental concept of the algorithm is that an array whose length is 1 does not need to be sorted. Neither does an array whose length is 0.</p>
+                                    <p>So, there are three possible relationships between the left index and the right index:</p>
+                                    <ol>
+                                        <li>right > left: the subarray has length < 1 (i.e. 0). The subarray does not need to be sorted, so no need to continue with the function.</li>
+                                        <li>left == right: the subarray has length 1. No need to continue with the function.</li>
+                                        <li>left < right: the subarray has length > 1, so it still needs to be sorted. The qs function will continue.</li>
+                                    </ol>
+
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td><pre>        var pivot = partition(A, left, right);</pre></td>
+                                <td><p>partition the subarray starting at left index and ending at right index. The partition function will return the index of the pivot. The pivot index will be equal to or between left index and right index.</p></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <pre>        quickSort (A, left, (pivot-1));</pre>
+                                    <pre>        quickSort (A, (pivot+1), right);</pre>
+                                </td>
+                                <td><p>run quickSort on the left partition and the right partition. Note that the pivot is not included in either partition, because it is already in its proper place.</p></td>
+                            </tr>
+                            <tr>
+                                <td><pre>function partition (A, left, right) {</pre></td>
+                                <td>the partition function takes the same parameters as the quicksort function.</td>
+                            </tr>
+                            <tr>
+                                <td><pre>    var pivotVal = A[left];</pre></td>
+                                <td>assign the pivot <i>value</i> to be leftmost value in the array. Note that different variations of the quicksort algorithm use different strategies for picking the pivot value (last, mid, random, e.g.). Note that the pivot value will remain in position A[left] until we have looked at all of the values in the array.</td>
+                            </tr>
+                            <tr>
+                                <td><pre>    var pivptr = left;</pre></td>
+                                <td>think of <i>pivptr</i> as a pointer to the position in the array where the pivot value belongs at the end of the function.</td>
+                            </tr>
+                            <tr>
+                                <td><pre>    for (var j = (left+1); j <= right; j++) {</pre></td>
+                                <td>we’re going to look at every value in the subarray, starting with the first value <i>after</i> the pivot value.</td>
+                            </tr>
+                            
+                            <tr>
+                                <td><pre>        if (A[j] <= pivotVal) {</pre></td>
+                                <td>if the current value is less than or equal to the pivot value, then increment the pivot pointer and then swap the position of the current value with the position of the pivot pointer.</td>
+                            </tr>
+                            
+                            <tr>
+                                <td><pre>            pivptr = pivptr + 1;</pre></td>
+                                <td>increment the pivot pointer</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <pre>            var temp = A[j];</pre>
+                                    <pre>            A[j] = A[pivptr];</pre>
+                                    <pre>            A[pivptr] = temp;</pre>
+                                    <pre>        }</pre>
+                                </td>
+                                <td><p>the swap</p></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><pre>    }</pre></td>
+                                <td><p>end of for loop</p></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><pre>temp = A[pivptr];</pre>
+                                    <pre>A[pivptr] = A[left];</pre>
+                                    <pre>A[left] = temp;</pre>
+                                </td>
+                                <td><p>put the pivot value in its proper position.</p></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><pre>return pivptr;</pre></td>
+                                <td><p>return the position of the pivot value</p></td>
+                            </tr>
+                                
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="container">
+                    &copy; Copyright 2015 tomgsmith99@gmail.com
+                </div>
+            </div>
+    </body>
+</html>

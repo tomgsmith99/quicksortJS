@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel ="stylesheet" type ="text/css" href ="temp.css">
+
+        <title>Tom's Quicksort</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script>
+            var BinaryTree = function(inputArray) {
+                this.inputArray = inputArray;
+//                this.sortedInts = inputArray; // array of ints, the result of the quicksort
+                this.sortedInts = Object.create(inputArray);
+                this.qsCount = 0; // a counter to stop runaway while looops
+// var obj2 = Object.create(obj1);
+                this.leaves = []; // array of leaves, in the order in which they were created
+                this.flatArray = []; // array of leaves, ordered by horizontal position
+                                        // in the tree
+                this.html = "";
+            };
+            
+            var Vehicle = function(make) {
+                this.make = make;
+            };
+            
+            Vehicle.prototype.getMake = function() {
+                return this.make;
+            };
+            
+            Vehicle.prototype.addType = function(type) {
+                this.type = new TypeOfVehicle(type);
+            };
+            
+            var TypeOfVehicle = function(type) {
+                this.type = type;
+            };
+            
+            TypeOfVehicle.prototype.getType = function() {
+                return this.type;
+            };
+            
+            window.onload = function () {
+                
+                var vehicle = new Vehicle("Honda");
+                
+                var type = 
+
+                console.log("the make is: " + vehicle.getMake());
+                
+            };
+
+        </script>
+    </head>
+    <body>
+
+<!--
+        <div class = 'node' id = 'leaf_1' style = 'left:10.5px;top:90px;'><div class = 'array' id = 'leaf_1_pre'><div class='cell' id='leaf_1_pre_0' style='top:90px;'>4</div><div class='cell' id='leaf_1_pre_1' style='top:90px;'>6</div><div class='cell' id='leaf_1_pre_2' style='top:90px;'>8</div></div></div>
+-->
+        
+<div id ="formTest">
+    
+
+    
+        <form id='qsArray' name='qsArray'>
+<!--            <fieldset name ="qsValues">-->
+       <input class='input' type='text' size='2' id='id1' name = 'qsValues'>
+       <input class='input' type='text' size='2' id='id2' name = 'qsValues'>
+       <input class='input' type='text' size='2' id='id3' name = 'qsValues'>
+<!--            </fieldset>-->
+
+        <button type = 'button' id = 'submitValues' onclick='run()'>run</button>
+
+        </form>
+
+    
+</div>
+        
+    </body>
+</html>

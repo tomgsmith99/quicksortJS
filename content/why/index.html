@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Why quicksort is important</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="Description" lang="en" content="an explanation of why the quicksort algorithm is important">
+        <meta name="author" content="tomgsmith99@gmail.com">
+        <meta name="robots" content="index, follow">
+
+        <link rel="stylesheet" href="../../assets/css/styles.css">
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="container">
+                    <h1 class="header-heading">The Quicksort Algorithm</h1>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <div class="container">
+                <ul class="nav">
+                    <li><a href="../why/">Why</a></li>
+                    <li><a href="../analogy/">An analogy</a></li>
+                    <li><a href="../illustration/">Illustration</a></li>
+<!--                <li><a href="#">Illustration explained</a></li>-->
+                    <li><a href="../codeWalkthrough/">Code</a></li>
+                    <!--Python-->
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container">
+                <div class="main">
+                    <h1>Why</h1>
+                    <hr>
+                    <h3>Why the quicksort algorithm is important, and interesting</h3>
+                    <p>Sorting things seems to be a simple task. Everyone can sort a reasonably sized list of numbers - let’s say 10 - in a pretty short period of time. If someone gave you ten playing cards and asked you to sort them from lowest to highest, you could probably do it in less than 10 seconds without a second thought.</p>
+                    <p>While you probably never consciously think about a "strategy" for sorting, your strategy for sorting a hand of cards probably goes something like this. Let's assume you're a patient player and you wait until all your cards are dealt before picking up your hand, and let's also ignore the cards' suits for now. When you pick up the cards, you look at the card furthest to your left. If it’s a high card you might move it to the right, looking for the next-highest card to put it to the right of. If it’s a low card you probably leave it in its current position, and then look at the next card to the right. If that card is lower, you move it to the left in front of the first card you looked at, and so on. Before long, a few seconds, you've sorted your cards from lowest to highest without too much trouble.</p>
+
+
+<!--                    <p>But, when presented with a large list of items, a list of 100 or 1,000 numbers for example, most people would quickly lose interest, or at least look for some help. Thankfully, computers are very good at sorting things. They don’t get tired, or frustrated, or distracted with the task of sorting. This is a good thing, because the typical computer processor spends a significant percentage of its time sorting.</p>
+
+                    <p>So, it’s important that computers sort data in the most efficient way possible. Think of all the computers in the world, constantly whirring away, burning electricity, sorting things. If all these computers can sort things a little more quickly, then everything gets done a little bit faster. If there is any efficiency to be gained in how computers approach sorting, this efficiency will have a huge impact on computing and the world.</p>-->
+
+<!--                    <p>Let’s go back to the notion of sorting playing cards. Let’s say you’re playing a strange card game where the dealer deals you 10 cards, all in the same suit. You’re a patient player so you wait until all your cards are dealt until you pick up your cards. When you pick up the cards and look at your hand, you look at the card furthest to your left. If it’s a high card you might move it to the right, looking for the next-highest card to put it to the right of. If it’s a low card you probably leave it in its current position, and then look at the next card to the right. If that card is lower, you move it to the left in front of the first card you looked at, and so on. Before long, a few seconds, you've sorted your cards from lowest to highest without too much trouble.</p>-->
+
+                    <p>Obviously, this sorting method (the Insertion Sort), or slight variations thereof, has worked perfectly well for card games for hundreds of years.</p>
+
+                    <p>But - what if you were dealt a thousand cards? Or a million? Would this still be the best strategy?</p>
+
+                    <p>The answer is “usually not.”</p>
+
+                    <p>There is a sorting method out there that usually sorts large sets of numbers faster than intuitive methods such as the Insertion Sort we use to sort playing cards. So, this sorting algorithm is important to making computing more efficient.</p>
+
+                    <p>This method is called the quicksort algorithm.</p>
+
+                    <p>I’ll explain how quicksort works a few ways, starting with a high-level analogy, then showing the logic a little more formally, then showing the code, then showing an illustration that you can run with random numbers or your own numbers to better understand how the algorithm works.</p>
+
+                    <p>Please note throughout these examples that there are <i>many</i> variations of the quicksort algorithm. I’ll try to point out when one of these differences is significant.</p>
+
+                    <p>If you’ve followed me thus far you’ll be able to follow the way I will illustrate it with a <a href='../analogy/'>lighthearted Sherlock Holmes & Dr. Watson example.</a></p>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                &copy; Copyright 2015 tomgsmith99@gmail.com
+            </div>
+        </div>
+    </body>
+</html>

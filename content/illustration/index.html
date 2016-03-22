@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Quicksort animation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="Description" lang="en" content="quicksort algorithm animation">
+        <meta name="author" content="tomgsmith99@gmail.com">
+        <meta name="robots" content="index, follow">
+
+        <script src="../../scripts/jquery/jquery-2.1.4.min.js" type ="text/javascript"></script>
+        <script src="../../scripts/jsplumb/jsPlumb-2.0.4.js"></script>
+
+        <script src='../../scripts/tom/binaryTree.js' type ='text/javascript'></script>
+        <script src="../../scripts/tom/qsDemo.js" type="text/javascript"></script>
+
+        <script type ="text/javascript">
+
+            var qsDemo = new QSDemo();
+                qsDemo.setCanvasID("quickSortCanvas");
+                qsDemo.setFormID("uiControls");
+
+                qsDemo.canvasX = 10;
+                qsDemo.canvasY = 100;
+                qsDemo.numFields = 10;
+                qsDemo.rowSpace = 100;
+                qsDemo.minVal = -9;
+                qsDemo.maxVal = 99;
+                qsDemo.maxFields = 40;
+
+            window.onload = function () {
+                
+                var initialArray = [22,45,35,77,73,52,0,55,77,16];
+                
+                qsDemo.run(initialArray);
+                qsDemo.renderForm();
+            };
+        </script>
+        
+        <!-- icons -->
+<!--        <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+        <link rel="shortcut icon" href="favicon.ico"> -->
+
+        <link rel="stylesheet" href="../../assets/css/styles.css">
+        <link rel ="stylesheet" type ="text/css" href ="../../css/quicksort.css">
+
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="container">
+                    <h1 class="header-heading">The Quicksort Algorithm</h1>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <div class="container">
+                <ul class="nav">
+                    <li><a href="../why/">Why</a></li>
+                    <li><a href="../analogy/">An analogy</a></li>
+                    <li><a href="../illustration/">Illustration</a></li>
+<!--                <li><a href="#">Illustration explained</a></li>-->
+                    <li><a href="../codeWalkthrough/">Code</a></li>
+                    <!--Python-->
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container">
+                <div class="main">
+                    <h1>Quicksort illustrator</h1>
+                    <hr>
+
+                    <div id ="uiControls"></div>
+                    <div id ="quickSortCanvas"></div>
+
+                </div>
+            </div>
+        </div>
+<!--        <div class="footer">
+            <div class="container">
+                &copy; Copyright 2015 tomgsmith99@gmail.com
+            </div>
+        </div>-->
+    </body>
+</html>
