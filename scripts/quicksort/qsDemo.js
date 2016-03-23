@@ -36,14 +36,20 @@ QSDemo.prototype.renderForm = function (n) {
     updateFields(this.trees[0].inputArray);
 };
 
-QSDemo.prototype.run = function (dataSet) {
+QSDemo.prototype.run = function (dataSet, firstTime) {
     updateFields(dataSet);
     var binaryTree = new BinaryTree(dataSet);
     binaryTree.runQuickSort();
     binaryTree.build();
 
     this.trees.push(binaryTree);
-    this.render(binaryTree);
+
+    if (firstTime) {
+        firstTime = 0;
+    }
+    else {
+        this.render(binaryTree);
+    }
 };
 
 QSDemo.prototype.setCanvasID = function (divID) {
