@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Quicksort animation</title>
+        <title>Quicksort interactive illustration</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="Description" lang="en" content="quicksort algorithm animation">
+        <meta name="Description" lang="en" content="quicksort algorithm illustration">
         <meta name="author" content="tomgsmith99@gmail.com">
         <meta name="robots" content="index, follow">
 
@@ -22,7 +22,7 @@
                 qsDemo.setFormID("uiControls");
 
                 qsDemo.canvasX = 10;
-                qsDemo.canvasY = 100;
+                qsDemo.canvasY = 75;
                 qsDemo.numFields = 10;
                 qsDemo.rowSpace = 100;
                 qsDemo.minVal = -9;
@@ -44,40 +44,13 @@
     </head>
 
     <body>
-        <div class="header">
-            <div class="container">
-                    <h1 class="header-heading">The Quicksort Algorithm</h1>
-            </div>
-        </div>
-        <div class="nav-bar">
-            <div class="container">
-                <ul class="nav">
-                    <li><a href="../analogy/">An analogy</a></li>
-                    <li><a href="../illustration/">Illustration</a></li>
-<!--                <li><a href="#">Illustration explained</a></li>-->
-                    <li><a href="../codeWalkthrough/">Code</a></li>
-                    <!--Python-->
 
-                </ul>
-            </div>
+        <div id = "topNav">
+            <p>The quicksort algorithm | <a href="../analogy/">An analogy</a>  | <a href="../codeWalkthrough/">Code</a>
         </div>
 
-        <div class="content">
-            <div class="container">
-                <div class="main">
-                    <h1>Quicksort illustrator</h1>
-                    <hr>
+        <div id ="uiControls"></div>
+        <div id ="quickSortCanvas"></div>
 
-                    <div id ="uiControls"></div>
-                    <div id ="quickSortCanvas"></div>
-
-                </div>
-            </div>
-        </div>
-<!--        <div class="footer">
-            <div class="container">
-                &copy; Copyright 2015 tomgsmith99@gmail.com
-            </div>
-        </div>-->
     </body>
 </html>

@@ -44,9 +44,7 @@ BinaryTree.prototype.calculateLeafDepths = function() {
         
         console.log("Leaf is: " + leaf.preArray.data + " Depth is: " + leaf.depth);
         console.log("------------");
-    }, this);
-    
-    // this.leaves.forEach(function(leaf) { leaf.setAncestors(); });
+    }, this);    
 };
 
 
@@ -361,7 +359,6 @@ Leaf.prototype.getPivotXpos = function() {
 
 Leaf.prototype.getXpos = function() {
     /* global qsDemo */
-    // return (qsDemo.canvasX + (qsDemo.cellWidth * this.origLeft));
     
     return (qsDemo.cellWidth * this.origLeft);
 
@@ -447,7 +444,7 @@ Leaf.prototype.setChild = function (child) {
 Leaf.prototype.getHTML = function() {
     var divClass;
     var html = "";
-    console.log("my divID is: " + this.divID);
+    // console.log("my divID is: " + this.divID);
 
     if (this.isFinal === false) { // a bit of a hack
         this.setDivIDs(); // sets div IDs for all child elements
@@ -470,7 +467,7 @@ Leaf.prototype.getHTML = function() {
 
     html += "</div>";
     
-    console.log("my HTML is: " + html);
+    // console.log("my HTML is: " + html);
     return html;
 };
 
@@ -478,19 +475,9 @@ Leaf.prototype.getStyle = function() {
     var style;
     var marginTop;
 
-    // Set top value
-//    if (this.depth === 0) { top = qsDemo.canvasY; }
-//    else { top = qsDemo.canvasY + (this.depth * qsDemo.rowSpace); }
-//    style = "top:" + top + "px;";
-    
-//    if (this.depth === 0) { marginTop = qsDemo.canvasY; }
-//    else { marginTop = qsDemo.canvasY + (this.depth * qsDemo.rowSpace); }
-//    style = "margin-top:" + marginTop + "px;";
-
     if (this.depth === 0) { marginTop = 0; }
     else { marginTop = (this.depth * 80); }
     style = "margin-top:" + marginTop + "px;";
-
 
     // Set left value
     style += "margin-left:" + this.getXpos() + "px;";
